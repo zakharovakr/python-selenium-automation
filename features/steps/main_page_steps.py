@@ -6,6 +6,16 @@ from time import sleep
 def open_target(context):
     context.driver.get('https://www.target.com/')
 
+@then('Verify header in shown')
+def verify_header_present(context):
+    context.driver.find_element(By.CSS_SELECTOR, "[class*='utilityHeaderContainer']")
+
+@then('Verify header has {number} links')
+def verify_header_link_amount(context, number):
+    number = int(number)  # convert str "6" ==> to int 6
+    links = context.driver.find_elements(By.CSS_SELECTOR, "[id*='utilityNav']")
+    assert len(links) == number, f'Expected {number} links but got {len(links)}'
+
 @when('Search for {product}')
 def search_product(context, product):
     # find search field and enter text

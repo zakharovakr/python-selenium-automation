@@ -4,3 +4,11 @@ Feature: Target cart feature
     Given Open Target main page
     When Click on Cart icon
     Then Verify 'Your cart is empty' message is shown
+
+  Scenario: User can add first product from search results to cart
+    Given Open Target main page
+    When Search for towel
+    Then Verify search results shown for towel
+    When Click on Add to cart button for the first item found
+    And Click on Add to cart button on right side menu
+    Then Validate Added to cart text is shown

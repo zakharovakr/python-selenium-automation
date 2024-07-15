@@ -30,26 +30,6 @@ def click_cart(context):
     context.driver.find_element(By.CSS_SELECTOR, "[data-test='@web/CartIcon']").click()
     sleep(3)
 
-@when('Click on Add to cart button for the first item found')
-def click_add_cart_button_for_first_item(context):
-    buttons = context.driver.find_elements(By.XPATH, "//button[text()='Add to cart']")
-    buttons[0].click()
-    sleep(3)
-
-@when('Click on Add to cart button on right side menu')
-def click_add_cart_button_side_menu(context):
-    context.driver.find_element(By.CSS_SELECTOR, "button[data-test='shippingButton']").click()
-
-@when('Click on View cart and checkout button')
-def click_view_cart_button(context):
-    context.driver.find_element(By.CSS_SELECTOR, "a[href='/cart']").click()
-
-@then('Validate Added to cart text is shown')
-def validate_added_to_cart_text(context):
-    expected_text = 'Added to cart'
-    actual_text = context.driver.find_element(By.CSS_SELECTOR, "h2[data-test='modal-drawer-heading'] span[class*='text']").text
-    assert expected_text in actual_text, f'Expected text {expected_text} is not in actual text {actual_text}'
-
 @when('Click Sign In')
 def click_sign_in(context):
     context.driver.find_element(By.XPATH, "//a[@data-test='@web/AccountLink']").click()

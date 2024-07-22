@@ -9,7 +9,7 @@ EMPTY_CART_MESSAGE = (By.CSS_SELECTOR, "div[data-test='boxEmptyMsg']")
 
 @given('Open Target main page')
 def open_target(context):
-    context.driver.get('https://www.target.com/')
+    context.app.main_page.open()
 
 @then('Verify header in shown')
 def verify_header_present(context):
@@ -23,14 +23,7 @@ def verify_header_link_amount(context, number):
 
 @when('Search for {product}')
 def search_product(context, product):
-    # find search field and enter text
-    context.driver.find_element(By.ID, 'search').send_keys(product)
-    # click search
-    context.driver.find_element(By.XPATH, "//button[@data-test='@web/Search/SearchButton']").click()
-    # wait for the page with search results to load
-    # sleep(6)
-    context.driver.wait.until(EC.visibility_of_element_located(SEARCH_RESULT_HEADER))
-
+    context.app.header.search_product()
 @when('Click on Cart icon')
 def click_cart(context):
     context.driver.find_element(By.CSS_SELECTOR, "[data-test='@web/CartIcon']").click()

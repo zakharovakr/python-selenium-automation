@@ -37,10 +37,10 @@ def click_cart(context):
 
 @when('Click Sign In')
 def click_sign_in(context):
-    context.driver.find_element(By.XPATH, "//a[@data-test='@web/AccountLink']").click()
+    context.app.header.click_sign_in()
 
 @when('From right side navigation menu, click Sign In')
 def click_sign_in_side_menu(context):
-    context.driver.find_element(By.XPATH, "//a[@data-test='accountNav-signIn']").click()
-    # sleep(3)
-    context.driver.wait.until(EC.visibility_of_element_located(SIGNIN_HEADER))
+    context.app.header.click_sign_in_from_side_bar()
+    # # sleep(3)
+    # context.driver.wait.until(EC.visibility_of_element_located(SIGNIN_HEADER))

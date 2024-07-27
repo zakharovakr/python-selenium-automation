@@ -8,8 +8,8 @@ Feature: Target main page search tests
       Examples:
       |product  |expected_result    |
       |coffee   |coffee             |
-#      |tea      |tea                |
-#      |iphone   |iphone             |
+      |tea      |tea                |
+      |iphone   |iphone             |
 
     Scenario: Verify that user can see product names and images
       Given Open target main page

@@ -12,11 +12,11 @@ PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
 PRODUCT_IMG = (By.CSS_SELECTOR, 'img')
 @then('Verify search results shown for {expected_product}')
 def verify_search_results(context, expected_product):
-    context.app.search_results_page.verify_text()
+    context.app.search_results_page.verify_search_results(expected_product)
 
 @then('Verify correct search results URL opens for {expected_product}')
 def verify_url(context, expected_product):
-    context.app.search_results_page.verify_url()
+    context.app.search_results_page.verify_product_in_url(expected_product)
 
 @when('Click on Add to cart button for the first item found')
 def click_add_cart_button_for_first_item(context):

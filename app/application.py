@@ -6,6 +6,7 @@ from pages.privacy_policy_page import PrivacyPage
 from pages.search_results_page import SearchResultsPage
 from pages.signin_page import SigninPage
 from pages.target_app_page import TargetAppPage
+from pages.terms_conditions_page import TermsConditionsPage
 
 
 class Application:
@@ -20,3 +21,4 @@ class Application:
         self.search_results_page = SearchResultsPage(driver)
         self.signin_page = SigninPage(driver)
         self.target_app_page = TargetAppPage(driver)
+        self.terms_conditions_page = TermsConditionsPage(driver)
